@@ -1,0 +1,30 @@
+name: Deploy index.html to S3
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "index.html"
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials using OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::858986859216:role/userfeedback
+          aws-region: ap-south-1
+
+      - name: Upload index.html to S3
+        run: |
+          aws s3 cp index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html
