@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "frontend/**"
+      - "wed.html"
 
 permissions:
   id-token: write
@@ -27,4 +27,4 @@ jobs:
 
       - name: Upload frontend to S3
         run: |
-          aws s3 cp frontend s3://${{ secrets.S3_BUCKET_NAME }}/frontend
+          aws . cp frontend s3://${{ secrets.S3_BUCKET_NAME }}/frontend
