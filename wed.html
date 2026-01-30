@@ -1,1 +1,22 @@
+<form id="feedbackForm">
+  <input type="text" placeholder="Name" id="name" required />
+  <input type="email" placeholder="Email" id="email" required />
+  <textarea placeholder="Feedback" id="message"></textarea>
+  <button type="submit">Submit</button>
+</form>
 
+<script>
+document.getElementById("feedbackForm").onsubmit = async function(e) {
+  e.preventDefault();
+  await fetch("http://EC2-IP:8080/api/feedback", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({
+      name: name.value,
+      email: email.value,
+      message: message.value
+    })
+  });
+  alert("Feedback submitted!");
+};
+</script>
