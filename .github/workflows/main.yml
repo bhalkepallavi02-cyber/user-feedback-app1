@@ -27,4 +27,4 @@ jobs:
 
       - name: Upload wed.html as index.html to S3
         run: |
-          aws s3 cp wed.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html --acl public-read
+          aws s3 cp wed.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html
