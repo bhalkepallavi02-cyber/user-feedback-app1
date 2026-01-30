@@ -1,18 +1,29 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>User Feedback</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>User Feedback Form</h2>
+<div class="container">
+    <h2>User Feedback Form</h2>
 
-<form>
-    <input type="text" placeholder="Name" required><br><br>
-    <input type="email" placeholder="Email" required><br><br>
-    <textarea placeholder="Enter your feedback"></textarea><br><br>
-    <button type="submit">Submit</button>
-</form>
+    <form id="feedbackForm">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <textarea id="message" placeholder="Enter your feedback"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="result"></p>
+</div>
+
+<!-- Link JavaScript -->
+<script src="script.js"></script>
 
 </body>
 </html>
