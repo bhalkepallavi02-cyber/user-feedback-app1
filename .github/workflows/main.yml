@@ -25,6 +25,6 @@ jobs:
           role-to-assume: arn:aws:iam::858986859216:role/userfeedback
           aws-region: ap-south-1
 
-      - name: Upload frontend to S3
+      - name: Upload wed.html to S3
         run: |
-          aws . cp frontend s3://${{ secrets.S3_BUCKET_NAME }}/frontend
+          aws s3 cp wed.html s3://${{ secrets.S3_BUCKET_NAME }}/frontend/wed.html
